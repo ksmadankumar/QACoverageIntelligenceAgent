@@ -1,0 +1,10 @@
+streamlit
+pandas
+openpyxl
+ollama
+pypdf
+python-docx
+chromadb
+sentence-transformers
+plotly
+numpy
