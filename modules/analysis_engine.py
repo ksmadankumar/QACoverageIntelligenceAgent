@@ -11,29 +11,24 @@ def analyze_single_test_case(
 ):
 
     prompt = f"""
-You are a Senior QA Architect.
+You are a Senior QA Test Architect.
 
-Requirement Context:
+Analyze the test case against the requirement.
 
-{requirement_context}
+Requirement:
+{requirement_context[:1500]}
 
 Test Case:
-
 {test_case}
 
-Return ONLY JSON.
+Respond ONLY with valid JSON.
 
 {{
-  "requirement_coverage":0,
-  "functional_coverage":0,
-  "ui_coverage":0,
-  "ux_coverage":0,
-  "security_coverage":0,
-  "quality_score":0,
-  "severity":"",
-  "priority":"",
-  "risk_level":"",
-  "missing_scenarios":[]
+  "quality_score": 0,
+  "severity": "",
+  "priority": "",
+  "risk_level": "",
+  "missing_scenarios": []
 }}
 """
 
@@ -50,18 +45,45 @@ Return ONLY JSON.
             + 1
         )
 
-        return json.loads(
+        parsed = json.loads(
             response[start:end]
         )
 
-    except:
+        return {
+            "quality_score":
+                parsed.get(
+                    "quality_score",
+                    0
+                ),
+
+            "severity":
+                parsed.get(
+                    "severity",
+                    "Medium"
+                ),
+
+            "priority":
+                parsed.get(
+                    "priority",
+                    "Medium"
+                ),
+
+            "risk_level":
+                parsed.get(
+                    "risk_level",
+                    "Medium"
+                ),
+
+            "missing_scenarios":
+                parsed.get(
+                    "missing_scenarios",
+                    []
+                )
+        }
+
+    except Exception:
 
         return {
-            "requirement_coverage": 0,
-            "functional_coverage": 0,
-            "ui_coverage": 0,
-            "ux_coverage": 0,
-            "security_coverage": 0,
             "quality_score": 0,
             "severity": "Unknown",
             "priority": "Unknown",

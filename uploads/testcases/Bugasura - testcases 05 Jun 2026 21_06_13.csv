@@ -1,0 +1,627 @@
+"Test Case ID",Scenario,"Testing Type",Severity,Priority,"Feature Name","Sub Feature Name","Test Conditions","Test Idea","Test Data","Acceptance Criteria","Test Steps","Test Flow Name","Request Method","API End Point","Expected Output",cURL
+TES10605,"Search Vietnamese content in Bugasura after Language Switching to keep data discovery accurate.",functionality,HIGH,P2,"Vietnamese Language Support","Language Switching","User enters and searches Vietnamese characters after switching language, and core data behavior remains unchanged.","As a Bugasura user working with Vietnamese content, I want to enter and search Vietnamese characters successfully after changing the interface language, while keeping search/filter behavior otherwise unchanged, so that my work data remains usable and consistent.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""search_term"",""value"":""n\u1ed9i dung ti\u1ebfng Vi\u1ec7t"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Search functions correctly with Vietnamese characters.","Step 1: Navigate to the Bugasura login page. 
+Step 2: Enter {{email}} in the 'Email' field. 
+Step 3: Enter {{password}} in the 'Password' field. 
+Step 4: Click the 'Login' button. 
+Step 5: Navigate to the 'Settings' menu. 
+Step 6: Access the 'Language Preferences' section. 
+Step 7: Select 'Vietnamese' from the dropdown list. 
+Step 8: Confirm the language selection. 
+Step 9: Enter Vietnamese content in the search bar. 
+Step 10: Verify search results display Vietnamese content accurately.",,,,,
+TES10604,"Change Bugasura language while keeping user-entered titles and comments unchanged for content accuracy.",localizability,HIGH,P2,"Vietnamese Language Support","Language Switching","Workspace contains user-entered content before language change and only product-owned UI text changes after switching.","As a Bugasura user, when I switch the interface language, I want menus, labels, dialogs, and messages to change language without altering bug titles, comments, or other user-entered content.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","User content remains unchanged after language switch.","Step 1: Navigate to the Bugasura login page. 
+Step 2: Enter {{email}} in the 'Email' field. 
+Step 3: Enter {{password}} in the 'Password' field. 
+Step 4: Click the 'Login' button. 
+Step 5: Wait for the dashboard to load. 
+Step 6: Navigate to the 'Settings' menu. 
+Step 7: Access the 'Language Preferences' section. 
+Step 8: Select 'Vietnamese' from the dropdown list of available languages. 
+Step 9: Confirm the language selection to apply changes immediately. 
+Step 10: Verify that UI labels and menus are updated to Vietnamese. 
+Step 11: Verify that user-entered content such as bug titles and comments remain unchanged.",,,,,
+TES10603,"Select Vietnamese once in Bugasura and keep it across devices and browser restarts for continuity.",usability,HIGH,P2,"Vietnamese Language Support","Automatic Language Detection","User selects Vietnamese, then logs out and in again, restarts the browser, and signs in from another device or browser.","As a Bugasura user who selected Vietnamese, I want the same language to be retained across future sessions and environments so that I do not need to reconfigure it each time.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""YourPasswordHere"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Language preference is retained across devices and browser restarts.","Step 1: Navigate to the Bugasura login page 
+Step 2: Enter {{email}} in the 'Email' field 
+Step 3: Enter your password in the 'Password' field 
+Step 4: Click 'Login' button 
+Step 5: Wait for the profile page to load 
+Step 6: Navigate to the settings menu 
+Step 7: Select 'Vietnamese' from the language options 
+Step 8: Save the language preference 
+Step 9: Log out and close the browser 
+Step 10: Re-open the browser and log in again 
+Step 11: Verify that the UI remains in Vietnamese 
+Step 12: Repeat on a different device and verify the same",,,,,
+TES10602,"Fall back to English in Bugasura when Vietnamese resource files fail to load to keep critical pages usable.",error_handling,CRITICAL,P2,"Vietnamese Language Support","Localization Quality Observability","Vietnamese resource bundle load fails during page open or language switch.","As an end user, if the Vietnamese resource bundle fails to load, I want the page to remain usable in English while the failure is captured in observability systems for diagnosis.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Pages should remain usable in English if Vietnamese resource files fail to load.","Step 1: Authenticate with credentials using 'Username' and 'Password'. 
+Step 2: Force Vietnamese resource files to fail loading. 
+Step 3: Navigate to a critical page in Bugasura. 
+Step 4: Verify the page remains usable in English. 
+Step 5: Check observability logs for resource load failure capture.",,,,,
+TES10601,"Record Bugasura language resolution source and fallback reason to explain how Vietnamese was chosen or bypassed.",functionality,HIGH,P2,"Vietnamese Language Support","Localization Quality Observability","Language selection occurs through browser detection, IP detection, saved preference, or fallback path.","As a QA engineer, I want logs to show whether Vietnamese was chosen by browser detection, IP geolocation, or saved preference, and why fallback occurred, so that language-resolution defects can be debugged accurately.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""browser_language"",""value"":""vi-VN"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Logs should clearly show language resolution source and fallback reasons.","Step 1: Authenticate with credentials using 'Username' and 'Password'. 
+Step 2: Set browser language to Vietnamese. 
+Step 3: Navigate to any page in Bugasura. 
+Step 4: Verify logs for language resolution source (browser/IP/user preference). 
+Step 5: Verify logs for fallback reasons if Vietnamese is not used.",,,,,
+TES10600,"Capture missing Vietnamese keys and English fallback events in Bugasura logs to speed up localization fixes.",error_handling,CRITICAL,P2,"Vietnamese Language Support","Localization Quality Observability","A page or component renders with an intentionally missing Vietnamese translation key.","As a QA engineer, I want missing Vietnamese translation events to generate structured logs on both client and server so that localization gaps can be diagnosed quickly.","[{""type"":""text"",""key"":""base_url"",""value"":""{{apiurl_teamusersupdate}}"",""test_data_id"":""26059"",""value_variables"":[{""name"":""{{apiurl_teamusersupdate}}"",""value"":""\/teamUsers\/update"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26059""}]},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""securePassword123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Logs should capture missing keys and fallback events for quick diagnosis.","Step 1: Navigate to {{base_url}} 
+Step 2: Authenticate using 'Email' and 'Password' fields 
+Step 3: Navigate to 'Settings' and select 'Language Preference' 
+Step 4: Choose 'Vietnamese' as the preferred language 
+Step 5: Simulate missing translation keys 
+Step 6: Verify logs capture missing keys and fallback events 
+Step 7: Ensure logs are structured for quick diagnosis",,,,,
+TES10599,"Run synthetic checks on critical Vietnamese pages in Bugasura to catch broken localization before users are affected.",functionality,CRITICAL,P2,"Vietnamese Language Support","Localization Quality Observability","Synthetic monitoring executes against critical Vietnamese pages with a controlled localization or resource failure.","As a release owner, I want synthetic checks on critical Vietnamese pages to detect broken localization or resource-load issues before users are impacted.","[{""type"":""text"",""key"":""base_url"",""value"":""{{apiurl_teamusersupdate}}"",""test_data_id"":""26059"",""value_variables"":[{""name"":""{{apiurl_teamusersupdate}}"",""value"":""\/teamUsers\/update"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26059""}]},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""securePassword123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Synthetic checks should detect broken localization before impacting users.","Step 1: Navigate to {{base_url}} 
+Step 2: Authenticate using 'Email' and 'Password' fields 
+Step 3: Navigate to 'Settings' and select 'Language Preference' 
+Step 4: Choose 'Vietnamese' as the preferred language 
+Step 5: Run synthetic checks on critical pages 
+Step 6: Verify synthetic checks detect broken localization 
+Step 7: Ensure issues are caught before impacting users",,,,,
+TES10598,"Surface untranslated strings and Vietnamese error spikes in Localization Quality Observability dashboards to guide release decisions.",functionality,CRITICAL,P2,"Vietnamese Language Support","Localization Quality Observability","Controlled untranslated-string events and Vietnamese locale-specific errors are generated and reflected in metrics.","As a QA or product owner, I want localization quality metrics to surface elevated untranslated-string rates and locale-specific errors so that release health can be monitored.","[{""type"":""text"",""key"":""base_url"",""value"":""{{apiurl_teamusersupdate}}"",""test_data_id"":""26059"",""value_variables"":[{""name"":""{{apiurl_teamusersupdate}}"",""value"":""\/teamUsers\/update"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26059""}]},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""securePassword123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Metrics should reflect untranslated-string rates and locale-specific errors for release monitoring.","Step 1: Navigate to {{base_url}} 
+Step 2: Authenticate using 'Email' and 'Password' fields 
+Step 3: Navigate to 'Settings' and select 'Language Preference' 
+Step 4: Choose 'Vietnamese' as the preferred language 
+Step 5: Simulate untranslated strings and error spikes 
+Step 6: Verify observability dashboards reflect untranslated-string rates 
+Step 7: Ensure locale-specific errors are visible for release monitoring",,,,,
+TES10597,"Roll out Vietnamese in Bugasura by audience percentage to expand adoption with lower release risk.",functionality,HIGH,P2,"Vietnamese Language Support","Feature Flag Release","Configure rollout targeting and observe that only intended users receive Vietnamese while others remain unaffected.","As a release manager, I want staged rollout of Vietnamese support so that production validation can happen with limited exposure before broader release.","[{""type"":""text"",""key"":""username"",""value"":""testuser"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""api_key"",""value"":""{{api_key}}"",""test_data_id"":""26049"",""value_variables"":[{""name"":""{{api_key}}"",""value"":""947eebffd0767c6158ef444ef636ad08134087ad"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26049""}]},{""type"":""text"",""key"":""apiurl_usersupdate"",""value"":""{{apiurl_usersupdate}}"",""test_data_id"":""26050"",""value_variables"":[{""name"":""{{apiurl_usersupdate}}"",""value"":""\/users\/update"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26050""}]},{""type"":""text"",""key"":""flag_name"",""value"":""VietnameseSupport"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""flag_status"",""value"":""on"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""numeric"",""key"":""rollout_percentage"",""value"":""50"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Vietnamese is rolled out to the targeted audience only.","Step 1: Authenticate user with credentials using 'Username' and 'Password' fields 
+Step 2: Navigate to the 'Profile/Settings' menu 
+Step 3: Select 'Language' from the options 
+Step 4: Choose 'Vietnamese' from the list of available languages 
+Step 5: Save changes and confirm language preference 
+Step 6: Verify that UI components, menus, and dialogs are displayed in Vietnamese 
+Step 7: Test fallback to English in case of missing translations 
+Step 8: Use feature flag to set rollout percentage for Vietnamese language support 
+Step 9: Verify that only the targeted audience receives the Vietnamese language interface",,,,,
+TES10596,"Capture Bugasura language events in logs and metrics to spot rollout issues quickly.",functionality,CRITICAL,P2,"Vietnamese Language Support","Feature Flag Release","Enable and disable the flag, trigger language resolution and fallback paths, and capture expected telemetry.","As an operations team member, I want localization quality events recorded so that rollout issues can be detected quickly in production.","[{""type"":""text"",""key"":""username"",""value"":""operations_team"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""securePassword101"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Language events are successfully captured in logs and metrics.","Step 1: Authenticate user with credentials using 'username' and 'password' fields 
+Step 2: Trigger language change to Vietnamese 
+Step 3: Verify that logs capture language resolution events 
+Step 4: Verify that metrics reflect language-related data",,,,,
+TES10595,"Keep Bugasura Vietnamese rollout limited to targeted users to support staged release exposure.",functionality,HIGH,P2,"Vietnamese Language Support","Feature Flag Release","Feature Flag Release is created with valid flag_name, status 'off', and rollout_percentage 45 for partial rollout behavior.","As Priya Sharma, a QA Lead, I want to create a flag 'feature_toggle' with status 'off' and rollout 45% so that the feature is disabled for 55% of users and enabled for 45%.","[{""type"":""text"",""key"":""username"",""value"":""priya_sharma"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""securePassword456"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""flag_name"",""value"":""feature_toggle"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""flag_status"",""value"":""off"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""rollout_percentage"",""value"":""45"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Feature flag is successfully limited to 45% of users.","Step 1: Authenticate user with credentials using 'username' and 'password' fields 
+Step 2: Navigate to the profile/settings menu 
+Step 3: Select 'Language' from the options 
+Step 4: Choose 'Vietnamese' from the list of available languages 
+Step 5: Save changes and confirm language preference 
+Step 6: Navigate to 'Feature Flags' section 
+Step 7: Create a new feature flag by entering {{flag_name}} in the 'Feature Flag Name' field 
+Step 8: Set {{flag_status}} in the 'Status' field 
+Step 9: Enter {{rollout_percentage}} in the 'Rollout Percentage' field 
+Step 10: Save the feature flag settings 
+Step 11: Verify that the feature flag is limited to 45% of users",,,,,
+TES10594,"Turn on the Bugasura Vietnamese feature flag for all users to launch full release access.",functionality,CRITICAL,P2,"Vietnamese Language Support","Feature Flag Release","Feature Flag Release is created with valid flag_name, status 'on', and rollout_percentage 100.","As Rajesh Kumar, a Product Manager at a SaaS company, I want to create a feature flag with name 'feature_toggle', status 'on', and rollout 100% so that the new feature is enabled for all users.","[{""type"":""text"",""key"":""username"",""value"":""rajesh_kumar"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""securePassword123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""flag_name"",""value"":""feature_toggle"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""flag_status"",""value"":""on"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""rollout_percentage"",""value"":""100"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Feature flag is successfully enabled for all users.","Step 1: Authenticate user with credentials using 'username' and 'password' fields 
+Step 2: Navigate to the profile/settings menu 
+Step 3: Select 'Language' from the options 
+Step 4: Choose 'Vietnamese' from the list of available languages 
+Step 5: Save changes and confirm language preference 
+Step 6: Navigate to 'Feature Flags' section 
+Step 7: Create a new feature flag by entering {{flag_name}} in the 'Feature Flag Name' field 
+Step 8: Set {{flag_status}} in the 'Status' field 
+Step 9: Enter {{rollout_percentage}} in the 'Rollout Percentage' field 
+Step 10: Save the feature flag settings 
+Step 11: Verify that the feature flag is enabled for all users",,,,,
+TES10593,"Restore Vietnamese from the Bugasura profile after browser cache is cleared to keep UI Localization stable.",functionality,HIGH,P2,"Vietnamese Language Support","UI Localization","Browser cache or local storage is cleared after saving Vietnamese preference, and the user signs in again.","As a Bugasura user, after selecting Vietnamese, if my browser storage is cleared or unavailable, my saved language should still be restored from my account profile when I log in again.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""62""},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""password123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Server-side persistence restores language preference after cache clearing.","Step 1: Navigate to {{base_url}} 
+Step 2: Enter {{email}} in the 'Email' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click 'Login' button 
+Step 5: Navigate to 'Profile/Account Settings' 
+Step 6: Select 'Vietnamese' from the 'Preferred Language' dropdown 
+Step 7: Click 'Save' button 
+Step 8: Clear browser cache 
+Step 9: Log out 
+Step 10: Log back in 
+Step 11: Verify UI displays in Vietnamese",,,,,
+TES10592,"Add new Vietnamese UI Localization content in Bugasura and keep screens readable as language coverage grows.",localizability,MEDIUM,P2,"Vietnamese Language Support","UI Localization","New Vietnamese localized content is introduced and rendered across Bugasura without display regressions.","As Minh, when new Vietnamese translations are introduced for product-owned UI content, the system should display them correctly and support scalable addition of languages without breaking localized presentation.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","New Vietnamese UI content should display correctly and support language growth without issues.","Step 1: Navigate to the Bugasura login page 
+Step 2: Enter {{email}} in the 'Email' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click 'Login' button 
+Step 5: Navigate to 'Profile/Account Settings' 
+Step 6: Select 'Vietnamese' from the 'Preferred Language' dropdown 
+Step 7: Click 'Save Preferences' button 
+Step 8: Verify new Vietnamese translations are displayed correctly in the UI",,,,,
+TES10591,"Handle oversized UI Localization values in Bugasura to keep screens stable when text grows beyond limits",localizability,HIGH,P2,"Vietnamese Language Support","UI Localization","UI Localization receives values that exceed expected maximum lengths for localization-related inputs.","As Tania Dey, a QA Analyst, I want to provide locale_code `en-US-EXTENDED`, region `EURWZ`, and custom_label with more than 50 chars so that the system reports max length violations on all fields.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""api_key"",""value"":""{{api_key}}"",""test_data_id"":""26049"",""value_variables"":[{""name"":""{{api_key}}"",""value"":""947eebffd0767c6158ef444ef636ad08134087ad"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26049""}]},{""type"":""text"",""key"":""locale_code"",""value"":""en-US-EXTENDED"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""region"",""value"":""EURWZ"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""custom_label"",""value"":""A very long string exceeding fifty characters for testing"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","System reports max length violations.","Step 1: Authenticate using credentials 
+Step 2: Navigate to 'Profile' or 'Account Settings' 
+Step 3: Select 'Language' option 
+Step 4: Enter {{locale_code}} 'en-US-EXTENDED' in the 'Locale Code' field 
+Step 5: Enter {{region}} 'EURWZ' in the 'Region' field 
+Step 6: Enter {{custom_label}} a string longer than 50 characters in the 'Custom Label' field 
+Step 7: Save changes 
+Step 8: Verify system reports max length violations",,,,,
+TES10590,"Reject injection-style text in UI Localization to protect Bugasura data paths and displayed content",error_handling,CRITICAL,P2,"Vietnamese Language Support","UI Localization","UI Localization receives SQL injection-style payloads in localization-related text inputs.","As Vandana Bhatt, a Security Analyst, I want to test for SQL injection by entering `' OR '1'='1` in custom_label so that the system identifies and blocks SQLi attempts.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""api_key"",""value"":""{{api_key}}"",""test_data_id"":""26049"",""value_variables"":[{""name"":""{{api_key}}"",""value"":""947eebffd0767c6158ef444ef636ad08134087ad"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26049""}]},{""type"":""text"",""key"":""custom_label"",""value"":""' OR '1'='1"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","System identifies and prevents SQLi attempts.","Step 1: Authenticate using credentials 
+Step 2: Navigate to 'Profile' or 'Account Settings' 
+Step 3: Select 'Language' option 
+Step 4: Enter {{custom_label}} ""' OR '1'='1"" in the 'Custom Label' field 
+Step 5: Save changes 
+Step 6: Verify system identifies and prevents SQLi attempts",,,,,
+TES10589,"Block unsafe script content in UI Localization to keep Bugasura screens secure while displaying text",error_handling,CRITICAL,P2,"Vietnamese Language Support","UI Localization","UI Localization receives script-based payloads in displayed text fields.","As Karthik Srinivasan, a Security Tester, I want to submit a script tag in the custom_label field (`<script>alert(1)</script>`) so that the system detects and prevents XSS injection attacks.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""api_key"",""value"":""{{api_key}}"",""test_data_id"":""26049"",""value_variables"":[{""name"":""{{api_key}}"",""value"":""947eebffd0767c6158ef444ef636ad08134087ad"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26049""}]},{""type"":""text"",""key"":""custom_label"",""value"":""\u003Cscript\u003Ealert(1)\u003C\/script\u003E"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","System detects and blocks XSS.","Step 1: Authenticate using credentials 
+Step 2: Navigate to 'Profile' or 'Account Settings' 
+Step 3: Select 'Language' option 
+Step 4: Enter {{custom_label}} '<script>alert(1)</script>' in the 'Custom Label' field 
+Step 5: Save changes 
+Step 6: Verify system detects and prevents XSS injection",,,,,
+TES10588,"Render multilingual text, Unicode, and emoji in UI Localization to keep Bugasura readable across diverse content",localizability,HIGH,P2,"Vietnamese Language Support","UI Localization","UI Localization displays multilingual Unicode and emoji content without encoding or rendering issues.","As Meera Pillai, a QA Specialist, I want to set locale_code to `ja`, region to `JP`, and custom_label to `🎉 مرحبا 日本語` so that the UI renders Japanese/Arabic/Emoji content without display or encoding errors.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""api_key"",""value"":""{{api_key}}"",""test_data_id"":""26049"",""value_variables"":[{""name"":""{{api_key}}"",""value"":""947eebffd0767c6158ef444ef636ad08134087ad"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26049""}]},{""type"":""text"",""key"":""locale_code"",""value"":""ja"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""region"",""value"":""JP"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""custom_label"",""value"":""\ud83c\udf89 \u0645\u0631\u062d\u0628\u0627 \u65e5\u672c\u8a9e"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Accurate rendering of diverse scripts.","Step 1: Authenticate using credentials 
+Step 2: Navigate to 'Profile' or 'Account Settings' 
+Step 3: Select 'Language' option 
+Step 4: Enter {{locale_code}} 'ja' in the 'Locale Code' field 
+Step 5: Enter {{region}} 'JP' in the 'Region' field 
+Step 6: Enter {{custom_label}} '? ????? ???' in the 'Custom Label' field 
+Step 7: Save changes 
+Step 8: Verify UI renders Japanese/Arabic/Emoji content without errors",,,,,
+TES10587,"Load Vietnamese UI Localization resources efficiently in Bugasura to keep switching fast and responsive",localizability,HIGH,P2,"Vietnamese Language Support","UI Localization","Bugasura loads Vietnamese language resources repeatedly across pages and sessions with caching enabled.","An focuses on efficient loading and caching to support localization.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/www.bugasura.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Efficient loading and caching of resources.","Step 1: Navigate to {{base_url}} 
+Step 2: Log in with valid credentials 
+Step 3: Change language to Vietnamese 
+Step 4: Verify efficient loading and caching of language resources 
+Step 5: Ensure UI is responsive during and after language switch",,,,,
+TES10586,"Show or hide Vietnamese in Bugasura through rollout controls to support safe release and rollback.",functionality,HIGH,P2,"Vietnamese Language Support","Language Selection","Vietnamese option availability and behavior respond correctly to feature flag or configuration toggle state.","As a release stakeholder, I want Vietnamese availability to be controlled by a feature flag so rollout can be staged and disabled safely if issues occur.",[],"Feature flag correctly controls the visibility and behavior of Vietnamese language option.","Step 1: Navigate to admin panel 
+Step 2: Locate 'Feature Flags' section 
+Step 3: Toggle 'Vietnamese Language Support' flag 
+Step 4: Refresh user session 
+Step 5: Verify Vietnamese option appears in 'Language Preferences' 
+Step 6: Toggle flag off 
+Step 7: Refresh user session 
+Step 8: Verify Vietnamese option is hidden",,,,,
+TES10585,"Switch Bugasura to Vietnamese instantly to keep collaboration smooth during frequent language changes.",usability,HIGH,P2,"Vietnamese Language Support","Language Selection","Language Selection updates the UI immediately without a full page reload or visible broken states.","Anil switches languages frequently while collaborating and needs instant changes.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/bugasura.example.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Language switches instantly without breaking the UI.","Step 1: Navigate to the login page at {{base_url}} 
+Step 2: Enter {{email}} in the 'Email' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click the 'Login' button 
+Step 5: Navigate to 'Profile' or 'Account Settings' screen 
+Step 6: Select 'Language Preferences' from the menu 
+Step 7: Switch between English and Vietnamese in the 'Language' dropdown 
+Step 8: Verify that language switches instantly without breaking the UI",,,,,
+TES10584,"Prepare Bugasura environments with Vietnamese bundles, detection inputs, and seeded accounts to enable smooth localization execution.",usability,HIGH,P2,"Vietnamese Language Support","Test Data Preparation","QA and staging environments include Vietnamese-ready resource bundles, configurable detection inputs, seeded accounts, and representative Vietnamese text data.","As a QA engineer, I want QA and staging environments preloaded with Vietnamese resource bundles, detection inputs, user-state accounts, and representative text data so that localization testing can start with reliable and repeatable prerequisites.","[{""type"":""text"",""key"":""base_url"",""value"":""{{apiurl_signup}}"",""test_data_id"":""26043"",""value_variables"":[{""name"":""{{apiurl_signup}}"",""value"":""https:\/\/api.bugasura.io\/users\/signup"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26043""}]},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""first_name"",""value"":""{{first_name}}"",""test_data_id"":""25942"",""value_variables"":[{""name"":""{{first_name}}"",""value"":""Syed"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""25942""}]},{""type"":""text"",""key"":""last_name"",""value"":""{{last_name}}"",""test_data_id"":""25941"",""value_variables"":[{""name"":""{{last_name}}"",""value"":""Rehman"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""25941""}]}]","Environment readiness with bundles, accounts, and datasets is explicitly required for effective Vietnamese validation.","Step 1: Navigate to the Bugasura login page using {{base_url}} 
+Step 2: Enter {{email}} in the 'Email' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click the 'Login' button 
+Step 5: Wait for the Dashboard to load 
+Step 6: Navigate to the 'Settings' screen 
+Step 7: Select the 'Language Preferences' option 
+Step 8: Choose 'Vietnamese' from the dropdown menu 
+Step 9: Confirm the selection and save preferences 
+Step 10: Verify that the language persists across session changes 
+Step 11: Verify that UI components and API responses are localized in Vietnamese 
+Step 12: Load Vietnamese test data for UI and API functionalities 
+Step 13: Validate the presence of Vietnamese resource bundles 
+Step 14: Verify detection inputs are correctly configured 
+Step 15: Ensure seeded accounts are set up with and without saved Vietnamese preference",,,,,
+TES10583,"Prepare Bugasura Vietnamese UI datasets for key modules to support reliable localization across core journeys.",functionality,HIGH,P2,"Vietnamese Language Support","Test Data Preparation","Vietnamese locale data covers core UI strings across key supported modules and user-facing surfaces.","As a QA engineer, I want a seeded Vietnamese dataset containing translations for navigation, settings, dashboard, core bug reporting, test management screens, dialogs, and key error messages so that I can validate core UI coverage consistently across environments.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""62""},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""value_variables"":[]}]","Core UI string coverage is a primary acceptance criterion for Vietnamese-specific test data.","Step 1: Navigate to {{base_url}} 
+Step 2: Authenticate user with {{email}} and {{password}} 
+Step 3: Navigate to 'Settings' screen 
+Step 4: Select 'Language Preferences' option 
+Step 5: Choose 'Vietnamese' from the dropdown 
+Step 6: Confirm and save preferences 
+Step 7: Verify localized navigation and dashboard 
+Step 8: Verify localized core bug reporting and test management screens 
+Step 9: Verify localized dialogs and key error messages",,,,,
+TES10582,"Prepare Bugasura diacritic-rich records for titles, comments, names, and search terms to reflect real Vietnamese usage.",localizability,HIGH,P2,"Vietnamese Language Support","Test Data Preparation","Dataset includes Vietnamese diacritic-rich values across titles, comments, user names, and search terms, including normalization-sensitive variations.","As a QA engineer, I want representative Vietnamese strings with tone marks, mixed case, punctuation, long strings, and near-duplicates with and without diacritics so that I can validate rendering and localizability behavior comprehensively.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""62""},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""value_variables"":[]},{""type"":""text"",""key"":""bug_title"",""value"":""Ti\u00eau \u0111\u1ec1 v\u1edbi d\u1ea5u"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""comment"",""value"":""B\u00ecnh lu\u1eadn v\u1edbi D\u1ea5u, v\u00e0 d\u1ea5u ch\u1ea5m!"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""search_term"",""value"":""T\u00ecm ki\u1ebfm v\u1edbi d\u1ea5u v\u00e0 ch\u1eef d\u00e0i"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Rich diacritic coverage is essential for realistic locale preparation and acceptance coverage.","Step 1: Navigate to {{base_url}} 
+Step 2: Authenticate user with {{email}} and {{password}} 
+Step 3: Navigate to 'Settings' screen 
+Step 4: Select 'Language Preferences' option 
+Step 5: Choose 'Vietnamese' from the dropdown 
+Step 6: Confirm and save preferences 
+Step 7: Enter a bug title with diacritics 
+Step 8: Enter a comment with mixed case and punctuation 
+Step 9: Enter a long string with Vietnamese diacritics 
+Step 10: Verify search functionality with diacritic-rich search terms",,,,,
+TES10581,"Prepare Bugasura user accounts for first-time, saved English, and saved Vietnamese states to drive correct language selection.",functionality,CRITICAL,P2,"Vietnamese Language Support","Test Data Preparation","Seeded accounts exist for first-time users, saved English preference users, and saved Vietnamese preference users with correct resolution precedence.","As a QA engineer, I want representative user accounts for each language-preference state so that I can validate that saved preference overrides automatic detection and first-time users receive the default detection path.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""62""},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""value_variables"":[]}]","User preference precedence and user-state coverage are explicit acceptance criteria for this functionality.","Step 1: Navigate to {{base_url}} 
+Step 2: Wait for the login page to load completely 
+Step 3: Locate 'Email' field 
+Step 4: Enter {{email}} in the 'Email' field 
+Step 5: Locate 'Password' field 
+Step 6: Enter {{password}} in the 'Password' field 
+Step 7: Click 'Login' button 
+Step 8: Wait for the navigation to complete 
+Step 9: Verify 'Dashboard' page is displayed 
+Step 10: Navigate to 'Settings' screen 
+Step 11: Select 'Language Preferences' option 
+Step 12: Choose 'Vietnamese' from the dropdown 
+Step 13: Confirm and save preferences 
+Step 14: Log out and log back in to verify language persistence",,,,,
+TES10580,"Prepare Vietnamese resource sets in Bugasura for full, partial, and missing coverage to support fallback and loading behavior.",error_handling,HIGH,P2,"Vietnamese Language Support","Test Data Preparation","Resource datasets represent complete Vietnamese translation, partial translation, and unavailable language-file conditions.","As a QA engineer, I want versioned Vietnamese language resource datasets covering full, partial, and unavailable translation states so that I can validate English fallback, immediate switching readiness, and scalable loading/cache scenarios.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""62""},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""value_variables"":[]}]","Fallback scenarios plus lazy loading and caching readiness are explicitly required in the functionality details.","Step 1: Navigate to {{base_url}} 
+Step 2: Authenticate user with {{email}} and {{password}} 
+Step 3: Navigate to 'Settings' screen 
+Step 4: Select 'Language Preferences' option 
+Step 5: Choose 'Vietnamese' from the dropdown 
+Step 6: Confirm and save preferences 
+Step 7: Verify full coverage by checking all UI components in Vietnamese 
+Step 8: Simulate partial coverage by removing some translations 
+Step 9: Verify fallback to English for missing translations 
+Step 10: Simulate missing language file and verify page usability with fallback",,,,,
+TES10579,"Prepare Bugasura text data so product-owned strings change to Vietnamese while user-entered content stays untouched.",localizability,HIGH,P2,"Vietnamese Language Support","Test Data Preparation","Dataset clearly separates translatable product-owned strings from non-translatable user-entered content containing Vietnamese diacritics.","As a QA validating localization rules, I want data that includes system labels plus user-created bug titles/comments in English and Vietnamese so that I can confirm only product-owned text is translated and user content is preserved.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""62""},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""value_variables"":[]},{""type"":""text"",""key"":""bug_title"",""value"":""Test Bug in English"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""comment"",""value"":""B\u00ecnh lu\u1eadn b\u1eb1ng ti\u1ebfng Vi\u1ec7t"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","This is a direct business rule and a necessary distinction in Vietnamese test data preparation.","Step 1: Navigate to {{base_url}} 
+Step 2: Authenticate user with {{email}} and {{password}} 
+Step 3: Navigate to 'Settings' screen 
+Step 4: Select 'Language Preferences' option 
+Step 5: Choose 'Vietnamese' from the dropdown 
+Step 6: Confirm and save preferences 
+Step 7: Verify UI components are in Vietnamese 
+Step 8: Enter a bug title in English and verify it remains unchanged 
+Step 9: Enter a comment in Vietnamese and verify it remains unchanged",,,,,
+TES10578,"Show Vietnamese diacritics correctly in Bugasura to preserve meaning and readability.",localizability,HIGH,P2,"Vietnamese Language Support","Test Data Preparation","Vietnamese diacritic characters render correctly in localized content and prepared test data.","Ananya uses Bugasura and expects Vietnamese diacritics to display accurately.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/app.bugasura.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""vietnamese_text"",""value"":""Ti\u1ebfng Vi\u1ec7t c\u00f3 d\u1ea5u"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Vietnamese diacritics are explicitly required in test data coverage for this functionality.","Step 1: Navigate to {{base_url}} 
+Step 2: Log in using {{email}} and {{password}} 
+Step 3: Enter Vietnamese text with diacritics in applicable fields 
+Step 4: Verify that diacritics are displayed correctly 
+Step 5: Ensure text rendering and readability is accurate",,,,,
+TES10577,"Prepare mixed-language Bugasura data so Vietnamese UI and original user content appear together without confusion.",localizability,HIGH,P2,"Vietnamese Language Support","Test Data Preparation","Mixed-language workspace data includes product-owned Vietnamese UI text and unchanged user-entered content in original languages.","As a QA validating Vietnamese support, I want seeded workspace data containing English and Vietnamese user-entered records with a Vietnamese-preference user so that I can verify mixed-language surfaces behave correctly without altering user content.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/app.bugasura.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Mixed-language surfaces are explicitly in scope and critical for accurate locale dataset preparation.","Step 1: Navigate to {{base_url}} 
+Step 2: Log in using {{email}} and {{password}} 
+Step 3: Verify Vietnamese UI elements alongside English user content 
+Step 4: Ensure no user content is altered by language settings 
+Step 5: Check for correct display of mixed-language surfaces",,,,,
+TES10576,"Open the same Bugasura workspace in different languages per user to support mixed-language collaboration.",functionality,HIGH,P2,"Vietnamese Language Support","Language Selection","Two users access the same workspace with different saved language preferences and each sees their own UI language.","As a Bugasura user collaborating with others, I want my language preference to be applied per user so that different users can work in the same workspace with their own preferred language.","[{""type"":""text"",""key"":""username1"",""value"":""user1@example.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password1"",""value"":""Password1!"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""username2"",""value"":""user2@example.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password2"",""value"":""Password2!"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""selection"",""key"":""language_code"",""value"":""Vietnamese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Mixed-language workspace support is explicitly required and is important for real-world adoption in distributed teams.","Step 1: Navigate to the Bugasura login page. 
+Step 2: Enter {{username1}} in the 'Username' field. 
+Step 3: Enter {{password1}} in the 'Password' field. 
+Step 4: Click the 'Login' button. 
+Step 5: Wait for the dashboard to load. 
+Step 6: Navigate to 'Settings Menu'. 
+Step 7: Select 'Language' option from settings. 
+Step 8: Select 'Vietnamese' from the 'language_code' dropdown. 
+Step 9: Click 'Submit' to save the language preference. 
+Step 10: Verify the language is switched to Vietnamese without page refresh. 
+Step 11: Log out from the current session. 
+Step 12: Repeat Steps 1-11 for a second user with different language preference. 
+Step 13: Verify both users can see the same workspace in their preferred languages. 
+Step 14: Confirm user preferences persist across sessions.",,,,,
+TES10575,"Show Vietnamese in Bugasura product-owned UI while keeping user-created content unchanged to preserve original meaning.",localizability,HIGH,P2,"Vietnamese Language Support","Language Selection","Bugasura switches product-owned UI text to Vietnamese while existing user-generated content stays in its original language.","As a Bugasura user, I want system-owned labels and messages translated while bug titles, comments, and test details remain as originally entered so that data meaning is preserved.","[{""type"":""text"",""key"":""username"",""value"":""user_content_preserver"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""contentPreserve123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","This separation between product text and user-entered content is a key business rule for Vietnamese support.","Step 1: Navigate to Bugasura application 
+Step 2: Authenticate user with credentials using 'username' field 
+Step 3: Enter {{username}} in the 'Username' field 
+Step 4: Enter {{password}} in the 'Password' field 
+Step 5: Click 'Login' button 
+Step 6: Change language setting to Vietnamese 
+Step 7: Verify that product-owned UI text is in Vietnamese 
+Step 8: Verify that user-created content remains in its original language",,,,,
+TES10574,"Submit malformed values in Bugasura Language Selection to surface clear errors and avoid invalid preference data.",error_handling,HIGH,P2,"Vietnamese Language Support","Language Selection","User provides invalid format values for language-related inputs and Bugasura returns validation errors.","As Aarti Joshi, a QA Executive, I want to submit invalid format values so that the system reports input validation errors instead of accepting malformed language selection data.","[{""type"":""text"",""key"":""username"",""value"":""aarti_joshi"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""securePass!123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""language_code"",""value"":""12345"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Format validation is important to keep preference handling predictable and secure.","Step 1: Navigate to Bugasura application 
+Step 2: Authenticate user with credentials using 'username' field 
+Step 3: Enter {{username}} in the 'Username' field 
+Step 4: Enter {{password}} in the 'Password' field 
+Step 5: Click 'Login' button 
+Step 6: Navigate to 'Settings' menu 
+Step 7: Select 'Language' option from settings 
+Step 8: Enter malformed value in the 'language_code' dropdown 
+Step 9: Submit the language selection 
+Step 10: Verify that an error message is displayed for malformed input 
+Step 11: Ensure language preferences remain unchanged",,,,,
+TES10573,"Enter an emoji in Bugasura Language Selection to block invalid input and protect stable language preferences.",error_handling,HIGH,P2,"Vietnamese Language Support","Language Selection","User attempts to submit an emoji as the language value and Bugasura rejects it safely.","As Rajesh Kulkarni, a QA Tester, I want to try selecting an emoji as a language to ensure the system rejects invalid non-language values and does not break language selection behavior.","[{""type"":""text"",""key"":""username"",""value"":""rajesh_kulkarni"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""password123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""language_code"",""value"":""\ud83d\ude0a"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Language Selection should reject malformed values that could corrupt preferences or disrupt localization flows.","Step 1: Navigate to Bugasura application 
+Step 2: Authenticate user with credentials using 'username' field 
+Step 3: Enter {{username}} in the 'Username' field 
+Step 4: Enter {{password}} in the 'Password' field 
+Step 5: Click 'Login' button 
+Step 6: Navigate to 'Settings' menu 
+Step 7: Select 'Language' option from settings 
+Step 8: Enter an emoji in the 'language_code' dropdown 
+Step 9: Submit the language selection 
+Step 10: Verify that an error message is displayed for invalid input 
+Step 11: Ensure language preferences remain unchanged",,,,,
+TES10572,"View accurate Vietnamese text across Bugasura product-owned UI to understand actions, labels, and navigation clearly.",localizability,HIGH,P2,"Vietnamese Language Support","Language Selection","Product-owned labels, menus, dialogs, and settings appear in Vietnamese after selection.","As Riya, a Bugasura user, I want UI labels, menus, settings, and dialogs to display accurate Vietnamese translations so that I can understand and use the interface confidently.","[{""type"":""text"",""key"":""username"",""value"":""riya_user"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""Secure@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""selection"",""key"":""language_code"",""value"":""Vietnamese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Correct translation quality is fundamental to the value of Vietnamese Language Selection.","Step 1: Navigate to the login page 
+Step 2: Enter {{username}} in the 'Username' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click the 'Login' button 
+Step 5: Wait for the dashboard to load 
+Step 6: Navigate to 'Settings' menu 
+Step 7: Select 'Language' option 
+Step 8: Choose 'Vietnamese' from the 'language_code' dropdown 
+Step 9: Click 'Submit' to confirm language selection 
+Step 10: Verify that all UI elements display accurate Vietnamese translations",,,,,
+TES10571,"Choose Vietnamese in Bugasura Language Selection with clear steps and reliable saved preference for a smoother experience.",usability,MEDIUM,P2,"Vietnamese Language Support","Language Selection","User navigates to settings, selects Vietnamese easily, and perceives the save behavior as predictable and understandable.","As Riya, a Bugasura user, I want selecting Vietnamese to be intuitive and the saved preference to remain stable so that the experience feels simple and trustworthy.","[{""type"":""text"",""key"":""username"",""value"":""riya_user"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""Secure@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""selection"",""key"":""language_code"",""value"":""Vietnamese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Even correct functionality can fail business goals if the selection flow feels confusing or unreliable.","Step 1: Navigate to the login page 
+Step 2: Enter {{username}} in the 'Username' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click the 'Login' button 
+Step 5: Wait for the dashboard to load 
+Step 6: Navigate to 'Settings' menu 
+Step 7: Select 'Language' option 
+Step 8: Choose 'Vietnamese' from the 'language_code' dropdown 
+Step 9: Click 'Submit' to confirm language selection 
+Step 10: Verify that the language preference is saved and reliable",,,,,
+TES10570,"Select Vietnamese in Bugasura Language Selection and switch product-owned UI instantly to continue work without page reload.",functionality,HIGH,P2,"Vietnamese Language Support","Language Selection","User selects Vietnamese from profile settings and product-owned UI updates in the same interaction without full page reload.","As Anil, a Bugasura user, I want to select Vietnamese in profile settings and see product-owned UI elements update immediately so that I can continue work without interruption or manual refresh.","[{""type"":""text"",""key"":""username"",""value"":""anil_user"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""Secure@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""selection"",""key"":""language_code"",""value"":""Vietnamese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Immediate UI response is a core expectation for Language Selection and directly affects user trust and usability.","Step 1: Navigate to the login page 
+Step 2: Enter {{username}} in the 'Username' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click the 'Login' button 
+Step 5: Wait for the dashboard to load 
+Step 6: Navigate to 'Settings' menu 
+Step 7: Select 'Language' option 
+Step 8: Choose 'Vietnamese' from the 'language_code' dropdown 
+Step 9: Click 'Submit' to save language selection 
+Step 10: Verify the UI switches to Vietnamese immediately without page reload",,,,,
+TES10569,"Bugasura opens with saved Vietnamese in future sessions to keep language experience consistent.",functionality,MEDIUM,P2,"Vietnamese Language Support","Automatic Detection","Saved Vietnamese preference exists in later sessions.","As a returning Bugasura user who manually selected Vietnamese earlier, I want Bugasura to keep opening in Vietnamese across future sessions without re-evaluating browser or IP signals, so that my chosen preference remains stable.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/bugasura.example.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""username"",""value"":""testuser@example.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Application should keep opening in Vietnamese consistently.","Step 1: Navigate to {{base_url}} 
+Step 2: Enter {{username}} in the 'Username' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click 'Login' button 
+Step 5: Navigate to 'Language Settings' via the user profile menu 
+Step 6: Select 'Vietnamese' from the language dropdown 
+Step 7: Save the language preference 
+Step 8: Log out of the application 
+Step 9: Log back in using {{username}} and {{password}} 
+Step 10: Verify that the application opens in Vietnamese",,,,,
+TES10568,"Bugasura keeps saved English instead of switching to Vietnamese to honor returning user choice.",functionality,HIGH,P2,"Vietnamese Language Support","Automatic Detection","Saved English preference exists while browser language or IP indicates Vietnamese.","As a returning Bugasura user who previously selected English, I want the application to continue opening in English even when my browser language or IP suggests Vietnamese, so that my explicit preference is respected.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/bugasura.example.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""username"",""value"":""testuser@example.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Application should continue opening in English.","Step 1: Navigate to {{base_url}} 
+Step 2: Enter {{username}} in the 'Username' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click 'Login' button 
+Step 5: Navigate to 'Language Settings' via the user profile menu 
+Step 6: Verify that the selected language is English 
+Step 7: Log out of the application 
+Step 8: Log back in using {{username}} and {{password}} 
+Step 9: Verify that the application still opens in English",,,,,
+TES10567,"Bugasura falls back to English when Vietnamese cannot load to keep the interface usable.",error_handling,HIGH,P2,"Vietnamese Language Support","Automatic Detection","Vietnamese detection or language application fails during initial load.","Vinh’s Vietnamese language detection or application fails during first load, and the system should fall back to English while keeping the interface usable.",[],"System should fall back to English while keeping the interface usable.","Step 1: Simulate a failure in loading the Vietnamese language file. 
+Step 2: Open the Bugasura application. 
+Step 3: Verify the interface falls back to English.",,,,,
+TES10566,"Bugasura switches language instantly without page reload to keep work uninterrupted.",usability,MEDIUM,P2,"Vietnamese Language Support","Automatic Detection","User changes language during an active session.","Ananya switches language within an active session and expects the UI language transition to feel immediate without requiring a full page reload.","[{""type"":""text"",""key"":""username"",""value"":""testuser"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""password123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Language transition should feel immediate without page reload.","Step 1: Log into Bugasura. 
+Step 2: Navigate to 'Language Settings' via the user profile menu. 
+Step 3: Change the language from English to Vietnamese. 
+Step 4: Verify the interface updates to Vietnamese without a page reload.",,,,,
+TES10565,"Bugasura opens in Vietnamese on first visit to guide users with matching browser language.",functionality,HIGH,P2,"Vietnamese Language Support","Automatic Detection","First-time access with browser language set to Vietnamese and no saved user preference.","Vinh accesses Bugasura for the first time with the browser language set to Vietnamese and no saved language preference, and expects the platform to display in Vietnamese by default.",[],"The platform should display in Vietnamese by default.","Step 1: Open Bugasura application in a browser with the language set to Vietnamese. 
+Step 2: Verify the interface displays in Vietnamese by default.",,,,,
+TES10564,"Suresh triggers a Vietnamese screen with a missing translation and the support team traces the exact language-resolution and fallback path in logs and localization metrics.","Business Critical Flow",HIGH,P2,Vietnamese,"Business Critical Flows","User-facing localization and fallback events must emit traceable logs and metrics that match the actual runtime resolution and failure path.","Suresh is a QA engineer in Noida running a canary scenario after the Vietnamese rollout. He signs in with a saved Vietnamese preference, opens a core page, and intentionally hits a surface where one translation key is unavailable. He sees a partial English fallback and immediately raises it to the support team. The support engineer must be able to trace whether the page resolved language from saved preference, whether fallback happened because a key was missing or because resources failed to load, and whether this defect is visible in localization quality dashboards. What breaks if this fails: the user-facing flow may partly degrade, but the deeper cross-story failure is that observability is disconnected from runtime behavior. The product can fall back, yet the team cannot diagnose why, cannot measure impact, and cannot decide whether to rollback or fix quickly.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""123456"",""test_data_id"":""26045""},{""type"":""text"",""key"":""preferred_language"",""value"":""Vietnamese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Structured logs capture resolved language, winning source of resolution, fallback usage, and resource-load result; missing translation or fallback events are visible in localization metrics/dashboard signals; the observed user experience matches what logs report; support and QA can distinguish missing-key fallback from resource-load failure; the event trail is sufficient for triage or rollback decisions.","Step 1: Launch the Bugasura application. 
+Step 2: Enter the email in the 'Email' field. 
+Step 3: Enter the password in the 'Password' field. 
+Step 4: Click the 'Login' button. 
+Step 5: Wait for the dashboard to load. 
+Step 6: Navigate to 'Account Settings'. 
+Step 7: Select 'Vietnamese' from the language dropdown. 
+Step 8: Click 'Save' to apply changes. 
+Step 9: Refresh the page. 
+Step 10: Navigate to a core page with known missing translation. 
+Step 11: Verify that missing translations fallback to English. 
+Step 12: Check logs for language resolution and fallback events.",,,,,
+TES10563,"Meera uses Bugasura in Vietnamese during a release issue, the team disables Vietnamese with the feature flag, and she continues her work in English instead of getting stuck on broken screens.","Business Critical Flow",CRITICAL,P2,Vietnamese,"Business Critical Flows","Runtime rollback via feature flag or supported-language configuration must override a previously saved Vietnamese preference cleanly and restore usable English/default flows.","Meera is a program manager in Kochi running a release-day smoke cycle with Vietnamese enabled. She is already using Vietnamese and navigating core screens when the team detects severe missing keys and layout instability. Operations triggers the feature flag rollback for Vietnamese. Meera refreshes or moves to another supported page and expects the product to recover into English/default gracefully rather than leaving cached Vietnamese remnants, broken navigation, or an unusable account state. What breaks if this fails: the feature-flag story and fallback story may each be fine alone, but the seam between live rollback, persisted user preference, and runtime screen recovery fails. Users with saved Vietnamese become stranded in partial screens or infinite switching loops after rollback.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""123456"",""test_data_id"":""26045""},{""type"":""text"",""key"":""preferred_language"",""value"":""Vietnamese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","When Vietnamese is disabled through feature flag/configuration, Vietnamese is removed or deactivated as an active runtime choice; users with saved Vietnamese are forced safely to English/default on next resolution path; supported pages remain usable; no blank strings, navigation breaks, or broken session states appear; rollback criteria align with missing-key/layout/override failure conditions.","Step 1: Launch the Bugasura application. 
+Step 2: Enter the email in the 'Email' field. 
+Step 3: Enter the password in the 'Password' field. 
+Step 4: Click the 'Login' button. 
+Step 5: Wait for the dashboard to load. 
+Step 6: Navigate to 'Account Settings'. 
+Step 7: Select 'Vietnamese' from the language dropdown. 
+Step 8: Click 'Save' to apply changes. 
+Step 9: Refresh the page. 
+Step 10: Verify that the UI is displayed in Vietnamese. 
+Step 11: Simulate the feature flag rollback to disable Vietnamese. 
+Step 12: Refresh the page. 
+Step 13: Verify that the UI reverts back to English. 
+Step 14: Navigate through core screens to ensure functionality.",,,,,
+TES10562,"Neeraj upgrades into a release where Vietnamese becomes available, keeps his old language preference safely, and then chooses Vietnamese without breaking existing account behavior.","Business Critical Flow",HIGH,P2,Vietnamese,"Business Critical Flows","Existing user preference records and upgraded locale options must interoperate cleanly so pre-release accounts are not broken and can adopt Vietnamese safely.","Neeraj is an existing Bugasura user in Ahmedabad who has been using English before the Vietnamese rollout. After the product is upgraded, he signs in with his long-standing account. His existing preference should remain valid, and the new Vietnamese option should appear in settings without disrupting his current experience. He then changes to Vietnamese and continues into supported screens. This journey crosses the upgrade path, old preference compatibility, new language availability, and post-upgrade localization. What breaks if this fails: the rollout story and the language-selection story may each work alone, but the seam between old user state and new locale support breaks. Neeraj may lose his preference, see an invalid stored value, get forced into the wrong language, or be unable to adopt Vietnamese after upgrade.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""123456"",""test_data_id"":""26045""},{""type"":""text"",""key"":""preferred_language"",""value"":""Vietnamese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","After upgrade, existing users retain valid current preferences; unknown or legacy language values fall back cleanly; Vietnamese appears as a selectable option without disrupting existing users; once Neeraj selects Vietnamese, supported surfaces localize correctly and persist in later sessions; no bulk migration is required for success of this path.","Step 1: Launch the Bugasura application. 
+Step 2: Enter the email in the 'Email' field. 
+Step 3: Enter the password in the 'Password' field. 
+Step 4: Click the 'Login' button. 
+Step 5: Wait for the dashboard to load. 
+Step 6: Navigate to 'Account Settings'. 
+Step 7: Verify the current language preference is set to English. 
+Step 8: Select 'Vietnamese' from the language dropdown. 
+Step 9: Click 'Save' to apply changes. 
+Step 10: Refresh the page. 
+Step 11: Verify that the UI is displayed in Vietnamese. 
+Step 12: Log out of the application. 
+Step 13: Log back in using the same credentials. 
+Step 14: Verify the UI remains in Vietnamese.",,,,,
+TES10561,"Kavya uses Bugasura in Vietnamese while her teammate Mohan views the same workspace in English, and both continue working on the same records without affecting each other’s language experience.","Business Critical Flow",CRITICAL,P2,Vietnamese,"Business Critical Flows","Per-user language preference must remain isolated across concurrent users on the same shared workspace while preserving shared business data consistently.","Kavya is a customer success manager in Mumbai supporting a Vietnamese-speaking client, while Mohan is an engineering manager in Delhi who prefers English. They open the same Bugasura workspace and access the same bug records during a live triage call. Kavya has selected Vietnamese earlier and expects navigation, dialogs, and error messages to appear in Vietnamese. Mohan expects the same workspace objects to appear with English product chrome on his side. Both see the same user-entered bug titles and comments because those are shared content, not translated product strings. What breaks if this fails: per-user preference works in isolation, and workspace access works in isolation, but the shared-state seam fails. One user’s language choice may overwrite or leak into the other user’s session, or shared content may become inconsistently localized, causing collaboration breakdown in a mixed-language workspace.","[{""type"":""text"",""key"":""kavya_language"",""value"":""Vietnamese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""mohan_language"",""value"":""English"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Kavya’s UI remains Vietnamese and Mohan’s UI remains English while both use the same workspace at the same time; one user’s language change does not alter the other user’s session; user-entered bug titles/comments remain common shared data and are not auto-translated; both users can perform normal workspace actions without session bleed, stale strings, or cross-user preference contamination.","Step 1: Kavya signs in and sets language to Vietnamese 
+Step 2: Mohan signs in and sets language to English 
+Step 3: Both users access the same Bugasura workspace 
+Step 4: Verify Kavya sees UI in Vietnamese 
+Step 5: Verify Mohan sees UI in English 
+Step 6: Verify shared content like bug titles/comments remains unchanged 
+Step 7: Both perform actions ensuring no cross-language interference occurs",,,,,
+TES10560,"Rajesh switches Bugasura to Vietnamese, opens bug records containing Vietnamese and English user-entered text, and then searches those records using Vietnamese diacritics without the entered content being auto-translated.","Business Critical Flow",HIGH,P2,Vietnamese,"Business Critical Flows","Changing UI language must localize only product-owned text while preserving original user-entered data and still allowing searchable Vietnamese characters across connected read/search workflows.","Rajesh is a test engineer in Hyderabad validating a customer workspace that contains real defect data. He switches his UI to Vietnamese so menus, filters, and system messages should become Vietnamese. Then he opens bug records where titles, comments, and names were entered by different teammates in English and Vietnamese, including words with tone marks and near-duplicate spellings. He searches using Vietnamese diacritics and expects Bugasura to find the correct records, while keeping user-entered content unchanged in its original form. What breaks if this fails: the language-switching story works, and search may work in isolation, but the seam between localized product chrome and raw user content handling fails. The app may wrongly translate user-entered content, corrupt the displayed data, or fail to find records with Vietnamese diacritics once the UI language changes, creating confusion over whether the language feature altered business data.","[{""type"":""text"",""key"":""search_term"",""value"":""Nh\u00e0"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","After switching to Vietnamese, menus, labels, filters, and messages appear in Vietnamese, but bug titles, comments, and test case details remain exactly as originally entered; Vietnamese diacritics in titles, comments, user names, and search terms are accepted and searchable; search behavior continues to work with Vietnamese characters; no unintended translation or corruption of user-entered content occurs.","Step 1: Sign in to Bugasura 
+Step 2: Navigate to 'Profile' or 'Account Settings' 
+Step 3: Select 'Vietnamese' from the 'Language' dropdown 
+Step 4: Open bug records containing mixed language text 
+Step 5: Search records using Vietnamese diacritics 
+Step 6: Verify that user-entered content remains unchanged 
+Step 7: Verify search results include entries with Vietnamese diacritics",,,,,
+TES10559,"Sneha works in Vietnamese, opens a core workflow that includes a partially untranslated dialog and an API-backed message, and completes the task with English fallback only where translation is missing.","Business Critical Flow",CRITICAL,P2,Vietnamese,"Business Critical Flows","Missing Vietnamese resources in one connected surface must degrade gracefully to English without breaking actionability, visibility, or completion of the overall workflow.","Sneha is a support manager in Pune handling defects quickly for a Vietnamese-speaking customer. She has already selected Vietnamese and is navigating a core Bugasura flow. In one step, she opens a dialog that contains product-owned UI labels, then triggers an API-driven confirmation or error message. A few Vietnamese keys are intentionally unavailable in the environment to simulate a real release gap. She should still be able to complete the workflow because untranslated product text should fall back gracefully to English, while translated strings remain Vietnamese. What breaks if this fails: settings correctly store Vietnamese, and some screens render Vietnamese, but when another connected story consumes missing translation keys or localized API responses, the user sees blank buttons, hidden elements, broken dialogs, or unusable action paths. The seam between localization rendering, API-backed content, and fallback behavior fails exactly where the end-to-end workflow matters most.","[{""type"":""text"",""key"":""preferred_language"",""value"":""Vietnamese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Supported screens remain usable when some Vietnamese translations are unavailable; missing keys fall back to English instead of blanks or hidden controls; mixed-language fallback appears only where translation truly does not exist; API responses designed for localization return Vietnamese where available and English fallback where missing; Sneha can complete the workflow end to end without layout collapse or blocked actions.","Step 1: Sign in to Bugasura with Vietnamese set as preferred language 
+Step 2: Open a core workflow involving dialogs and API messages 
+Step 3: Verify that UI labels are in Vietnamese 
+Step 4: Trigger an API-backed message 
+Step 5: Verify message content displays in Vietnamese or falls back to English where translation is missing 
+Step 6: Complete the workflow task ensuring no untranslated elements remain",,,,,
+TES10558,"Arjun opens Bugasura for the first time with a Vietnamese browser setting, starts in Vietnamese, later chooses English manually, and then returns to see English kept instead of auto-switching back to Vietnamese.","Business Critical Flow",HIGH,P2,Vietnamese,"Business Critical Flows","First-load auto-detection must apply only before a preference is saved, and explicit user preference must win in later sessions across the language resolution chain.","Arjun is a product consultant in Bengaluru helping a distributed team onboard to Bugasura. On his first visit, his browser language is Vietnamese, so Bugasura should detect that and open in Vietnamese because he has no saved preference yet. After exploring, he decides he is more comfortable working in English and explicitly changes the language in settings. Later he logs out and comes back, still using the same browser and network conditions that suggest Vietnamese. He expects English to remain because an explicit user choice should now beat automatic detection. What breaks if this fails: the first-load detection story works, and the manual language selection story works, but the sequencing between them breaks. The system keeps reapplying browser or IP-based detection on later sessions and overrides Arjun’s explicit English choice, forcing him back into Vietnamese and making settings feel powerless.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/bugasura.io"",""test_data_id"":""62""}]","On first access with no saved preference, Bugasura may resolve to Vietnamese using browser language or IP-geolocation; after Arjun explicitly selects English, subsequent sessions must resolve to English regardless of browser/IP Vietnamese signals; structured logs should show the winning source changed from auto-detection to saved user preference; no later session should silently revert to Vietnamese unless the user changes it again.","Step 1: Open Bugasura with Vietnamese browser setting 
+Step 2: Verify application loads in Vietnamese 
+Step 3: Navigate to 'Profile' or 'Account Settings' 
+Step 4: Locate 'Language' dropdown 
+Step 5: Select 'English' from the dropdown 
+Step 6: Click 'Save Changes' button 
+Step 7: Verify that UI labels and navigation are displayed in English 
+Step 8: Sign out of the application 
+Step 9: Sign back in using the same browser 
+Step 10: Verify that the application persists in English",,,,,
+TES10557,"Priya chooses Vietnamese in her profile settings, signs out, signs in from another browser on a different device, and continues using the dashboard and settings in Vietnamese.","Business Critical Flow",CRITICAL,P2,Vietnamese,"Business Critical Flows","Server-side saved Vietnamese preference must override browser/device context and drive consistent localization across profile settings, session re-entry, and supported product surfaces.","Priya is a QA lead in Chennai working with a Vietnamese-speaking customer team. She opens Bugasura in English, goes to her profile settings, and changes her language to Vietnamese because she wants to review the product the way her customer sees it. She immediately lands back on product areas like dashboard navigation, menus, dialogs, and settings, and expects those product-owned surfaces to switch to Vietnamese without stale English fragments. Later, she signs out, opens Bugasura from another browser on her laptop, and then from a mobile device. Because her language preference is supposed to be stored on the server-side user profile and not depend only on browser cache, the same Vietnamese experience should continue across sessions and devices. What breaks if this fails: Priya successfully changes the language in settings, but downstream screens still resolve language from browser defaults or local cache instead of the saved profile, so she sees English on the dashboard, mixed-language dialogs, or a reset preference on the second device. The seam between language selection, persistence, and cross-surface localization fails, making the feature feel unreliable and incomplete.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/bugasura.io"",""test_data_id"":""62""},{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""Password@123"",""test_data_id"":""26045""}]","Vietnamese selected in profile/settings is saved as the authoritative user preference on the server; supported UI labels, navigation, settings, dialogs, and common error messages render in Vietnamese immediately after selection; after logout/login, browser change, and device change, the same user still sees Vietnamese; browser cache differences do not override the saved preference; no unsupported blank labels or hidden controls appear during the transition; behavior remains aligned with per-user persistence and supported localized surfaces.","Step 1: Navigate to {{base_url}} and open the login page 
+Step 2: Locate 'Email' field 
+Step 3: Enter {{email}} in the 'Email' field 
+Step 4: Locate 'Password' field 
+Step 5: Enter {{password}} in the 'Password' field 
+Step 6: Click 'Login' button 
+Step 7: Wait for the dashboard to load completely 
+Step 8: Navigate to 'Profile' or 'Account Settings' 
+Step 9: Locate 'Language' dropdown 
+Step 10: Select 'Vietnamese' from the dropdown 
+Step 11: Click 'Save Changes' button 
+Step 12: Verify that UI labels and navigation are displayed in Vietnamese 
+Step 13: Sign out of the application 
+Step 14: Sign in from another browser or device 
+Step 15: Repeat steps 2 to 8 
+Step 16: Verify that the dashboard and settings are still in Vietnamese",,,,,
+TES10556,"Meera encounters a Vietnamese fallback incident during a live session and the team can trace from her experience to structured logs and localization quality signals.","Business Critical Flow",HIGH,P2,Vietnamese,"Business Critical Flows","User-facing fallback and language-resolution events must produce traceable structured observability signals tied to the same end-to-end session.","Meera is a QA manager in Ahmedabad running a controlled pilot. She signs in with Vietnamese selected, opens several screens, and one dialog falls back to English because a translation is missing. She reports the issue to the release team. This journey crosses runtime language resolution, fallback execution, and observability for localization quality. What breaks if this fails: Meera experiences a visible mixed-language interruption, but the logs do not record why the system chose Vietnamese, where fallback happened, or which screen failed. That means the user-facing localization workflow and the backend observability story are disconnected. The immediate product path may remain usable, but the seam to diagnosis and release control is broken, making production support slow and risky.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""{{invalid_password}}"",""test_data_id"":""26045"",""value_variables"":[{""name"":""{{invalid_password}}"",""value"":""123456"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26045""}]}]","When Vietnamese is selected or resolved, structured logs capture the source of resolution such as saved preference or auto-detection., When fallback to English occurs, a fallback event is recorded for the affected surface or resource., The user session remains usable while the observability events are generated., Teams can correlate the reported mixed-language experience to logs/metrics or synthetic checks., The observability trail distinguishes normal mixed-language fallback from broader localization failure.","Step 1: Navigate to the Bugasura login page 
+Step 2: Enter {{email}} in the 'Email' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click the 'Login' button 
+Step 5: Wait for the dashboard to load 
+Step 6: Navigate to various screens including dialogs 
+Step 7: Verify fallback to English occurs on untranslated screens 
+Step 8: Check logs for fallback events 
+Step 9: Verify user session remains usable 
+Step 10: Correlate logs with mixed-language experience",,,,,
+TES10555,"Nitin uses a Vietnamese-enabled account before rollout rollback, and after the feature flag is turned off he can still access Bugasura in a usable English experience instead of landing in a broken state.","Business Critical Flow",CRITICAL,P2,Vietnamese,"Business Critical Flows","When Vietnamese is disabled by feature flag, accounts with saved Vietnamese preference must fall back safely to English without corrupting access or session usability.","Nitin is a customer success engineer in Delhi supporting a pilot rollout. His account already has Vietnamese saved as the preferred language. During production monitoring, the team notices broken translations and disables the Vietnamese feature flag. Nitin next signs in and opens the dashboard and settings. This journey crosses saved preference, feature flag rollout control, rollback behavior, and fallback to English. What breaks if this fails: the system still tries to honor a no-longer-available Vietnamese preference, causing broken screens, untranslated keys, or login loops. This is a seam failure between the persisted user state and the release-control layer. Even if feature flags and persistence both work individually, the rollback path can strand real users in unusable sessions.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""{{invalid_password}}"",""test_data_id"":""26045"",""value_variables"":[{""name"":""{{invalid_password}}"",""value"":""123456"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26045""}]}]","If the Vietnamese rollout is disabled, users with saved Vietnamese preference can still log in and use the product., The application falls back to English or default language for in-scope surfaces., No blank screens, broken menus, or untranslated placeholder keys block navigation., The rollback behavior is consistent across dashboard, settings, dialogs, and common error messages., Users are not trapped in an unrecoverable language-selection state.","Step 1: Navigate to the Bugasura login page 
+Step 2: Enter {{email}} in the 'Email' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click the 'Login' button 
+Step 5: Wait for the dashboard to load 
+Step 6: Verify the dashboard is displayed in English 
+Step 7: Navigate to 'Settings' 
+Step 8: Verify settings are displayed in English 
+Step 9: Log out from the application 
+Step 10: Log back in with the same credentials 
+Step 11: Verify the application remains in English",,,,,
+TES10554,"Kavya searches and reviews bugs containing Vietnamese diacritics after changing the interface language, while the labels change but the underlying search results remain correct.","Business Critical Flow",HIGH,P2,Vietnamese,"Business Critical Flows","UI localization must not alter underlying search/filter behavior, and Vietnamese user-entered data with diacritics must remain searchable and correctly rendered.","Kavya is a test architect in Kochi preparing demo data for a Vietnamese customer. She switches her interface from English to Vietnamese, opens the bug list, and searches for records whose titles, comments, and names contain Vietnamese tone marks and near-duplicate spellings with and without diacritics. She then applies filters and opens matching bug records. This journey crosses UI language switching, Vietnamese data rendering, search acceptance of Vietnamese characters, and the rule that only labels/messages change while core data behavior remains unchanged. What breaks if this fails: after the interface language changes, the search layer or result rendering mishandles Vietnamese data, returning inconsistent results, corrupting characters, or incorrectly translating user-entered bug titles. That would expose a seam failure between localization presentation and data/search behavior.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""{{invalid_password}}"",""test_data_id"":""26045"",""value_variables"":[{""name"":""{{invalid_password}}"",""value"":""123456"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26045""}]},{""type"":""text"",""key"":""search_term"",""value"":""bug with diacritics"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","After changing the UI language, labels and system messages appear in Vietnamese., Search, filter, and sorting behavior continue to function as designed without unintended locale-side behavior changes., Vietnamese characters with diacritics are accepted, stored, rendered, and searchable in bug titles, comments, names, and search terms., User-entered content is not translated or altered by the interface language switch., Matching records can be opened and viewed successfully in the same workflow.","Step 1: Kavya logs into Bugasura and sets language to Vietnamese. 
+Step 2: Open 'Bug List' and search for records with Vietnamese diacritics. 
+Step 3: Verify search results include titles and comments with diacritics. 
+Step 4: Apply filters and sort search results. 
+Step 5: Open matching bug records. 
+Step 6: Verify labels and system messages appear in Vietnamese. 
+Step 7: Verify user-entered content is not altered by language switch.",,,,,
+TES10553,"Rajesh opens a Vietnamese session, hits a screen where the Vietnamese resource is missing, and continues the workflow using English fallback without losing his saved Vietnamese preference.","Business Critical Flow",CRITICAL,P2,Vietnamese,"Business Critical Flows","Missing or failed Vietnamese resources must trigger graceful English fallback while preserving the user’s saved Vietnamese preference for later retry.","Rajesh is a release manager in Mumbai validating the rollout before enabling it for pilot users. He saves Vietnamese as his preferred language and navigates through core screens. On one page, the Vietnamese resource bundle is incomplete or fails to load. Instead of stopping, he continues through the page, opens a dialog, triggers a validation error, and then moves to another page. This journey crosses persisted language preference, fallback behavior, page usability, and continued navigation after a localization failure. What breaks if this fails: the application shows blank values, placeholder keys, unusable controls, or silently resets Rajesh’s saved preference to English after one failed page load. That would mean the fallback story and persistence story do not work together, causing an end-to-end failure precisely when resilience matters most.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""{{invalid_password}}"",""test_data_id"":""26045"",""value_variables"":[{""name"":""{{invalid_password}}"",""value"":""123456"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26045""}]}]","If Vietnamese resources are missing or fail to load on a page, product-owned text falls back to English., No blank screen, hidden controls, untranslated keys, or unusable form/dialog states appear., Rajesh can continue the business workflow on the affected page and subsequent pages., The saved profile preference remains Vietnamese after the fallback incident., Later pages continue using Vietnamese where resources are available and English only where fallback is needed.","Step 1: Rajesh logs into Bugasura with language set to Vietnamese. 
+Step 2: Navigate through core screens. 
+Step 3: Encounter a screen where Vietnamese resource is missing. 
+Step 4: Verify fallback to English text occurs. 
+Step 5: Continue workflow opening dialogs and triggering validations. 
+Step 6: Verify no blank screens or unusable controls appear. 
+Step 7: Verify that saved language preference remains Vietnamese.",,,,,
+TES10552,"Sneha works in Vietnamese while Ravi views the same workspace in English and both open the same bug details and comments during the same time window.","Business Critical Flow",HIGH,P2,Vietnamese,"Business Critical Flows","Language preference must be isolated per user while shared workspace content remains consistent and user-entered text remains unaltered.","Sneha, a support manager in Pune, prefers Vietnamese because she is coordinating with a pilot customer. Ravi, an engineering manager in Hyderabad, stays on English. Both open the same Bugasura workspace and the same bug record at nearly the same time. Sneha reads menus, buttons, dialogs, and system messages in Vietnamese, while Ravi expects English. The bug title and comments were written by users and include Vietnamese diacritics. This journey crosses per-user language preference, mixed-language workspace behavior, localization boundaries, and the rule that user-entered content must remain unchanged. What breaks if this fails: when Sneha changes her language, Ravi’s view also changes, or the bug title/comment text is incorrectly translated or corrupted. That means the shared workspace and shared entity handling between user preference and content rendering has failed. It is a classic seam issue: the same data object is consumed by two stories with different presentation rules.","[{""type"":""text"",""key"":""email_sneha"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password_sneha"",""value"":""{{invalid_password}}"",""test_data_id"":""26045"",""value_variables"":[{""name"":""{{invalid_password}}"",""value"":""123456"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26045""}]},{""type"":""text"",""key"":""email_ravi"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password_ravi"",""value"":""{{invalid_password}}"",""test_data_id"":""26045"",""value_variables"":[{""name"":""{{invalid_password}}"",""value"":""123456"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26045""}]}]","Sneha sees product-owned UI text in Vietnamese while Ravi sees product-owned UI text in English in the same workspace., Neither user’s language setting changes the other user’s interface., Bug titles, comments, and other user-entered content remain exactly as entered for both users., Vietnamese diacritics render correctly in shared content for both users., Shared actions on the same workspace do not overwrite per-user language state.","Step 1: Sneha logs into Bugasura and sets language to Vietnamese. 
+Step 2: Ravi logs into Bugasura and sets language to English. 
+Step 3: Both Sneha and Ravi open the same workspace and bug details. 
+Step 4: Verify Sneha sees UI text in Vietnamese. 
+Step 5: Verify Ravi sees UI text in English. 
+Step 6: Verify bug titles and comments remain unchanged for both users. 
+Step 7: Verify Vietnamese diacritics render correctly in shared content.",,,,,
+TES10551,"Arjun switches Bugasura to Vietnamese and continues working through navigation, dialogs, settings, and API-backed screens in the same session without refreshing the page.","Business Critical Flow",CRITICAL,P2,Vietnamese,"Business Critical Flows","A language change in settings must propagate immediately and consistently to connected UI modules and localized API-backed content within the same session.","Arjun is a product analyst in Bengaluru helping a Vietnamese-speaking client during a live demo. He starts in English, opens profile settings, chooses Vietnamese, and immediately continues to the dashboard, bug list, filters, detail dialogs, and settings pages. This journey crosses language selection, immediate UI refresh behavior, localization of product-owned text, and API responses designed to return localized strings. What breaks if this fails: Arjun changes the language successfully in settings, but downstream screens continue to show stale English labels, partially translated dialogs, or API-backed messages in the old language. That means the settings story works in isolation, but the handoff to dependent modules and localized responses fails, leaving a fragmented mixed-state experience during a real workflow. The requirements explicitly call for immediate-feeling switching, localized UI surfaces, and localized API-backed text where designed.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""{{invalid_password}}"",""test_data_id"":""26045"",""value_variables"":[{""name"":""{{invalid_password}}"",""value"":""123456"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26045""}]}]","After selecting Vietnamese, the UI updates within the same interaction without forced full-page refresh., Navigation items, menus, settings labels, dialogs, and common error messages appear in Vietnamese., API responses designed to return localized text are rendered in Vietnamese in the same session., No broken placeholders, untranslated keys, or stale English strings remain on in-scope surfaces except permitted fallback cases., The workflow stays functionally usable while language text changes.","Step 1: Launch Bugasura in English language. 
+Step 2: Navigate to 'Profile Settings'. 
+Step 3: Select 'Vietnamese' from the language dropdown. 
+Step 4: Click 'Save Changes' button. 
+Step 5: Verify UI updates to Vietnamese without page refresh. 
+Step 6: Navigate to 'Dashboard', 'Bug List', and 'Settings'. 
+Step 7: Verify all navigation items and dialogs appear in Vietnamese. 
+Step 8: Verify API-backed messages are localized to Vietnamese. 
+Step 9: Verify no stale English strings remain.",,,,,
+TES10550,"Priya opens Bugasura for the first time in Vietnamese, changes her language to English in settings, signs out, and later signs in from another device where the browser is still set to Vietnamese.","Business Critical Flow",CRITICAL,P2,Vietnamese,"Business Critical Flows","Explicitly saved language preference on the server must override browser/IP auto-detection across logout, login, browser change, and device change.","Priya is a QA lead in Chennai working with a Vietnamese customer pilot. On her first visit, Bugasura detects Vietnamese from her browser or location and opens the product in Vietnamese. She then goes into profile settings and explicitly changes her language to English because she is preparing English screenshots for her internal team. Later that day, she logs out and signs in again from another laptop whose browser is still configured for Vietnamese. This journey crosses automatic language detection, explicit user language selection, server-side persistence, and cross-device restoration of preference. What breaks if this fails: Priya’s saved English preference is lost at the handoff between detection logic and persisted profile preference, so the second device reverts her back to Vietnamese. That creates a seam failure where first-load detection overrides the already-saved user choice, making the product feel unreliable and causing confusion in a core onboarding-to-settings-to-login workflow. This flow is grounded in the requirement that saved user preference must override automatic detection and persist across sessions and devices.","[{""type"":""text"",""key"":""email"",""value"":""{{email}}"",""test_data_id"":""27082"",""value_variables"":[{""name"":""{{email}}"",""value"":""example@gmail.com"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""27082""}]},{""type"":""text"",""key"":""password"",""value"":""{{invalid_password}}"",""test_data_id"":""26045"",""value_variables"":[{""name"":""{{invalid_password}}"",""value"":""123456"",""is_global"":1,""is_environment_variable"":0,""test_data_id"":""26045""}]}]","On first load with no saved preference, Bugasura may default to Vietnamese based on detection., After Priya changes language to English, the language preference is saved in her user profile as the authoritative source., After logout and login on another device with Vietnamese browser settings, the application opens in English, not Vietnamese., No stale Vietnamese labels remain after login on the second device., The workflow remains usable without requiring manual reset of language preference.","Step 1: Launch Bugasura with browser language set to Vietnamese. 
+Step 2: Verify UI labels, navigation, and menu items appear in Vietnamese. 
+Step 3: Navigate to 'Profile Settings'. 
+Step 4: Select 'English' from the language dropdown. 
+Step 5: Click 'Save Changes' button. 
+Step 6: Verify language preference is saved in user profile. 
+Step 7: Sign out of Bugasura. 
+Step 8: Sign in on another device where browser language is set to Vietnamese. 
+Step 9: Verify application opens in English. 
+Step 10: Verify no stale Vietnamese labels remain.",,,,,
+TES10525,"Open Bugasura in a fallback language when a saved language is no longer supported to avoid startup friction.",robustness,MEDIUM,P2,"Multi Language","multi lan","An unsupported or retired saved locale exists in profile/session data when Bugasura starts.","As a returning user, if my saved language is no longer supported, I want the application to open in a fallback language instead of failing or showing broken text.","[{""type"":""text"",""key"":""username"",""value"":""user@example.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""SecurePass123!"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""language"",""value"":""Klingon"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Persistence and fallback must work together to avoid broken re-entry scenarios.","Step 1: Navigate to Bugasura login page 
+Step 2: Enter {{username}} in the 'Username' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click 'Login' button 
+Step 5: Wait for navigation to user dashboard 
+Step 6: Navigate to 'User Settings' menu 
+Step 7: Select 'Language' option 
+Step 8: Choose an unsupported {{language}} from the dropdown list 
+Step 9: Confirm language selection and save preferences 
+Step 10: Log out and log back in 
+Step 11: Verify application opens in a fallback language 
+Step 12: Ensure no broken text is displayed",,,,,
+TES10523,"Show fallback text in Bugasura when a translation is missing to keep screens understandable.",localizability,MEDIUM,P2,"Multi Language","multi lan","A supported language has missing translation keys and Bugasura shows defined fallback text instead of blanks or broken labels.","As a user using a supported language, I want missing translations to fall back gracefully so the UI remains understandable.","[{""type"":""text"",""key"":""username"",""value"":""fallback.user"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""FallbackPass321!"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""language"",""value"":""ar"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Missing-key fallback is critical for graceful localization rollout and maintenance.","Step 1: Navigate to the Bugasura login page. 
+Step 2: Locate 'Username' field. 
+Step 3: Enter {{username}} in the 'Username' field. 
+Step 4: Locate 'Password' field. 
+Step 5: Enter {{password}} in the 'Password' field. 
+Step 6: Click 'Login' button. 
+Step 7: Navigate to the user settings menu. 
+Step 8: Select the 'Language' option. 
+Step 9: Choose 'Arabic' from the dropdown list. 
+Step 10: Confirm the language selection and save preferences. 
+Step 11: Verify that missing translations show fallback text. 
+Step 12: Verify UI remains understandable despite missing translations.",,,,,
+TES10522,"Reopen Bugasura and continue in the saved language after refresh or relaunch for a consistent session.",functionality,MEDIUM,P2,"Multi Language","multi lan","User selects a language, refreshes or relaunches Bugasura, and the saved language remains active.","As a user, after selecting my preferred language, I want the same language to remain after refresh/reopen so I do not need to reselect it.","[{""type"":""text"",""key"":""username"",""value"":""persistent.user"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""PersistPass789!"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""language"",""value"":""hi"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Persistence should work beyond login flow and cover normal day-to-day reopening behavior.","Step 1: Navigate to the Bugasura login page. 
+Step 2: Locate 'Username' field. 
+Step 3: Enter {{username}} in the 'Username' field. 
+Step 4: Locate 'Password' field. 
+Step 5: Enter {{password}} in the 'Password' field. 
+Step 6: Click 'Login' button. 
+Step 7: Navigate to the user settings menu. 
+Step 8: Select the 'Language' option. 
+Step 9: Choose 'Hindi' from the dropdown list. 
+Step 10: Confirm the language selection and save preferences. 
+Step 11: Refresh the page. 
+Step 12: Verify the language setting persists after the refresh. 
+Step 13: Close and reopen Bugasura. 
+Step 14: Verify the language setting persists after reopening.",,,,,
+TES10515,"Open Bugasura in Japanese to display Unicode text correctly for localized reading and work.",localizability,MEDIUM,P2,"Multi Language","multi lan","Japanese is selected and Unicode content is displayed, stored, and rendered without corruption.","As Satoshi Yamamoto, a Localization Engineer, I want to enter `ja` and `日本語のテキスト` as content to verify Unicode processing.","[{""type"":""text"",""key"":""username"",""value"":""satoshi@example.com"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""password"",""value"":""SecurePass123"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""language"",""value"":""Japanese"",""test_data_id"":"""",""generated"":true,""value_variables"":[]},{""type"":""text"",""key"":""content"",""value"":""\u65e5\u672c\u8a9e\u306e\u30c6\u30ad\u30b9\u30c8"",""test_data_id"":"""",""generated"":true,""value_variables"":[]}]","Unicode handling is essential for real multilingual support beyond Latin scripts.","Step 1: Navigate to the login page 
+Step 2: Enter {{username}} in the 'Username' field 
+Step 3: Enter {{password}} in the 'Password' field 
+Step 4: Click 'Login' button 
+Step 5: Wait for the dashboard to load 
+Step 6: Navigate to the user settings menu 
+Step 7: Select the 'Language' option 
+Step 8: Choose 'Japanese' from the dropdown list 
+Step 9: Enter '????????' as content 
+Step 10: Click 'Save' to confirm language selection 
+Step 11: Verify that the UI displays content in Japanese with correct Unicode",,,,,
+TES10477,"Bugasura keeps a saved language preference instead of running auto detection again for returning users.",functionality,MEDIUM,P2,"Language Detection and Preference Management","auto detection","Returning user with saved preference logs in from a different region or browser-language setting.","As a returning Bugasura user with a previously saved language choice, I want the platform to honor my saved preference instead of re-detecting from IP or browser so that my experience remains personalized and stable.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""62""},{""type"":""text"",""key"":""username"",""value"":""returninguser@example.com"",""test_data_id"":""126""},{""type"":""text"",""key"":""password"",""value"":""SecurePass123!"",""test_data_id"":""127""},{""type"":""text"",""key"":""saved_language_preference"",""value"":""Spanish"",""test_data_id"":""128""}]","System honors saved language preference over new auto-detection for returning users.","Step 1: Navigate to {{base_url}} 
+Step 2: Wait for login page to load completely 
+Step 3: Locate 'Username' field 
+Step 4: Enter {{username}} in the 'Username' field 
+Step 5: Locate 'Password' field 
+Step 6: Enter {{password}} in the 'Password' field 
+Step 7: Click 'Login' button 
+Step 8: Wait for navigation to complete 
+Step 9: Verify 'Dashboard' page is displayed 
+Step 10: Check if a saved language preference exists 
+Step 11: Override auto-detection with saved preference 
+Step 12: Verify that the UI reflects the saved language 
+Step 13: Logout user 
+Step 14: Perform login again 
+Step 15: Verify that the saved language is applied 
+Step 16: Verify no auto-detection occurs on subsequent logins",,,,,
+TES10475,"Auto detection chooses a clear language in Bugasura when IP and browser preferences disagree.",functionality,MEDIUM,P2,"Language Detection and Preference Management","auto detection","First login with conflicting IP-based geolocation and browser language inputs and no saved preference.","As a new Bugasura user accessing from one geolocated region while the browser is configured for another language, I want the system to apply a deterministic default language so that the first-load experience is predictable and consistent.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""""},{""type"":""text"",""key"":""username"",""value"":""testuser"",""test_data_id"":""""},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":""""}]","System applies a deterministic language choice when IP and browser preferences conflict.","Step 1: Navigate to {{base_url}} 
+Step 2: Wait for the login page to load completely 
+Step 3: Locate 'Username' field 
+Step 4: Enter {{username}} in the 'Username' field 
+Step 5: Locate 'Password' field 
+Step 6: Enter {{password}} in the 'Password' field 
+Step 7: Click 'Login' button 
+Step 8: Wait for navigation to complete 
+Step 9: Verify 'Dashboard' page is displayed 
+Step 10: Verify welcome message contains {{username}} 
+Step 11: Set browser language to one locale and use a VPN to change IP to another 
+Step 12: Access Bugasura platform 
+Step 13: Verify that the system applies a deterministic default language 
+Step 14: Ensure the selected language is consistent across sessions",,,,,
+TES10473,"Auto detection ignores unsupported browser language and opens Bugasura with a safe fallback.",functionality,MEDIUM,P2,"Language Detection and Preference Management","auto detection","First login with unsupported browser language and no valid localized match.","A user opens Bugasura with the browser configured to an unsupported language. The system should ignore the unsupported locale and fallback appropriately without UI errors.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""""},{""type"":""text"",""key"":""username"",""value"":""testuser"",""test_data_id"":""""},{""type"":""text"",""key"":""password"",""value"":""Test@123"",""test_data_id"":""""}]","System falls back to a safe language without UI errors.","Step 1: Navigate to {{base_url}} 
+Step 2: Wait for the login page to load completely 
+Step 3: Locate 'Username' field 
+Step 4: Enter {{username}} in the 'Username' field 
+Step 5: Locate 'Password' field 
+Step 6: Enter {{password}} in the 'Password' field 
+Step 7: Click 'Login' button 
+Step 8: Wait for navigation to complete 
+Step 9: Verify 'Dashboard' page is displayed 
+Step 10: Verify welcome message contains {{username}} 
+Step 11: Set browser language to an unsupported locale 
+Step 12: Access Bugasura platform 
+Step 13: Verify that the system falls back to a supported language 
+Step 14: Ensure no UI errors are present 
+Step 15: Navigate through the platform to confirm stability",,,,,
+TES10469,"Auto detection falls back to English to keep Bugasura usable when language signals fail.",functionality,MEDIUM,P2,"Language Detection and Preference Management","auto detection","First login where both IP-based geolocation and browser language detection fail.","Chien Tran accesses Bugasura from a location with restricted IP data and an unsupported browser language. The system should default to English seamlessly without broken UI elements.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""26043""},{""type"":""text"",""key"":""username"",""value"":""chien.tran@example.com"",""test_data_id"":""26044""},{""type"":""text"",""key"":""password"",""value"":""SecurePass123!"",""test_data_id"":""26045""},{""type"":""text"",""key"":""detected_language"",""value"":""English"",""test_data_id"":""26046""}]","System should default to English without UI failures.","Step 1: Navigate to {{base_url}} 
+Step 2: Wait for login page to load completely 
+Step 3: Locate 'Username' field 
+Step 4: Enter {{username}} in the 'Username' field 
+Step 5: Locate 'Password' field 
+Step 6: Enter {{password}} in the 'Password' field 
+Step 7: Click 'Login' button 
+Step 8: Wait for navigation to complete 
+Step 9: Verify 'Dashboard' page is displayed 
+Step 10: System attempts to detect language based on unavailable signals 
+Step 11: Verify fallback to English is triggered 
+Step 12: Set English as the default language for the session 
+Step 13: Navigate through the platform UI 
+Step 14: Verify UI elements are displayed in English 
+Step 15: Logout user 
+Step 16: Login again with the same credentials 
+Step 17: Verify that English is retained as the default language",,,,,
+TES10467,"Auto detection reads browser language to load Bugasura in the preferred language on first visit.",functionality,MEDIUM,P2,"Language Detection and Preference Management","auto detection","First login with supported browser language and no saved language preference.","Maria Lopez logs in from Spain with her browser set to Spanish. The system should detect the browser language and set the interface to Spanish automatically on first load.","[{""type"":""text"",""key"":""base_url"",""value"":""https:\/\/api.bugasura.io"",""test_data_id"":""26043""},{""type"":""text"",""key"":""username"",""value"":""maria.lopez@example.com"",""test_data_id"":""26044""},{""type"":""text"",""key"":""password"",""value"":""SecurePass123!"",""test_data_id"":""26045""},{""type"":""text"",""key"":""detected_language"",""value"":""Spanish"",""test_data_id"":""26046""}]","System should detect browser language and set interface language accordingly.","Step 1: Navigate to {{base_url}} 
+Step 2: Wait for login page to load completely 
+Step 3: Locate 'Username' field 
+Step 4: Enter {{username}} in the 'Username' field 
+Step 5: Locate 'Password' field 
+Step 6: Enter {{password}} in the 'Password' field 
+Step 7: Click 'Login' button 
+Step 8: Wait for navigation to complete 
+Step 9: Verify 'Dashboard' page is displayed 
+Step 10: System detects browser's language settings 
+Step 11: Verify detected language is Spanish 
+Step 12: Set Spanish as the default language for the session 
+Step 13: Navigate through the platform UI 
+Step 14: Verify UI elements are displayed in Spanish 
+Step 15: Logout user 
+Step 16: Login again with the same credentials 
+Step 17: Verify that Spanish is retained as the default language",,,,,
+TES5077,"Retaining Bugasura language preferences after logging out and back in.",Functionality,MEDIUM,P2,"Localization   Accessibility","Language Support","User selects French, logs out, and upon re-login, the UI should remain in French.","Verify persistence of language preferences across user sessions.","[{""type"":""text"",""key"":""username"",""value"":""test_user_01"",""test_data_id"":""429""},{""type"":""text"",""key"":""password"",""value"":""P@ssw0rd!"",""test_data_id"":""429""}]","Language preference is preserved across sessions, ensuring the selected language remains active upon re-login.","Step 1: Log in to Bugasura with valid credentials. 
+Step 2: Change the language to French. 
+Step 3: Log out from Bugasura. 
+Step 4: Log back in using the same credentials. 
+Step 5: Verify that the UI remains in French.",,,,,

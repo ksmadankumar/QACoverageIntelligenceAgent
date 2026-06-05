@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 import plotly.express as px
 
 
@@ -7,107 +8,157 @@ def render_dashboard(
     traceability_df
 ):
 
-    st.header(
-        "📊 QA Intelligence Dashboard"
+    st.sidebar.title(
+        "QA Coverage Intelligence Agent"
     )
 
-    total_cases = len(
+    page = st.sidebar.radio(
+        "Navigation",
+        [
+            "Executive Summary",
+            "Traceability Matrix",
+            "Raw Results"
+        ]
+    )
+
+    if page == "Executive Summary":
+
+        render_executive_summary(
+            results_df,
+            traceability_df
+        )
+
+    elif page == "Traceability Matrix":
+
+        render_traceability(
+            traceability_df
+        )
+
+    elif page == "Raw Results":
+
+        render_raw_results(
+            results_df
+        )
+
+
+def render_executive_summary(
+    results_df,
+    traceability_df
+):
+
+    st.header(
+        "Executive Summary"
+    )
+
+    total_tests = len(
         results_df
     )
 
-    avg_score = round(
-        results_df[
-            "final_score"
-        ].mean(),
-        2
+    avg_score = 0
+
+    if "quality_score" in results_df.columns:
+
+        avg_score = round(
+            pd.to_numeric(
+                results_df["quality_score"],
+                errors="coerce"
+            ).fillna(0).mean(),
+            2
+        )
+
+    covered = 0
+
+    if (
+        "coverage_status"
+        in traceability_df.columns
+    ):
+
+        covered = len(
+            traceability_df[
+                traceability_df[
+                    "coverage_status"
+                ]
+                ==
+                "Covered"
+            ]
+        )
+
+    total_requirements = len(
+        traceability_df
     )
 
-    coverage = round(
-
+    coverage_pct = round(
         (
-            len(
-                traceability_df[
-                    traceability_df[
-                        "Coverage Status"
-                    ]
-                    ==
-                    "Covered"
-                ]
-            )
+            covered
             /
-            len(traceability_df)
+            max(
+                total_requirements,
+                1
+            )
         )
         * 100,
-
         2
-
     )
 
-    c1, c2, c3 = (
-        st.columns(3)
+    col1, col2, col3 = st.columns(3)
+
+    col1.metric(
+        "Total Tests",
+        total_tests
     )
 
-    c1.metric(
-        "Test Cases",
-        total_cases
-    )
-
-    c2.metric(
-        "Average Score",
+    col2.metric(
+        "Average Quality",
         avg_score
     )
 
-    c3.metric(
-        "Requirement Coverage %",
-        coverage
+    col3.metric(
+        "Coverage %",
+        coverage_pct
     )
 
     st.divider()
 
-    st.subheader(
-        "Requirement Coverage"
-    )
+    if (
+        "quality_score"
+        in results_df.columns
+    ):
 
-    coverage_fig = (
-        px.histogram(
-            traceability_df,
-            x="Coverage Status"
+        fig = px.histogram(
+            results_df,
+            x="quality_score",
+            title="Quality Distribution"
         )
+
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
+
+
+def render_traceability(
+    traceability_df
+):
+
+    st.header(
+        "Requirement Traceability Matrix"
     )
 
-    st.plotly_chart(
-        coverage_fig,
+    st.dataframe(
+        traceability_df,
         use_container_width=True
     )
 
-    st.subheader(
-        "Severity Distribution"
+
+def render_raw_results(
+    results_df
+):
+
+    st.header(
+        "Analysis Results"
     )
 
-    sev_fig = (
-        px.histogram(
-            results_df,
-            x="severity"
-        )
-    )
-
-    st.plotly_chart(
-        sev_fig,
-        use_container_width=True
-    )
-
-    st.subheader(
-        "Risk Distribution"
-    )
-
-    risk_fig = (
-        px.histogram(
-            results_df,
-            x="risk_level"
-        )
-    )
-
-    st.plotly_chart(
-        risk_fig,
+    st.dataframe(
+        results_df,
         use_container_width=True
     )

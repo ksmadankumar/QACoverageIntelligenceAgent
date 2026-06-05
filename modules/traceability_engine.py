@@ -1,7 +1,5 @@
 import pandas as pd
 
-from modules.rag_engine import retrieve_context
-
 
 def build_traceability_matrix(
     requirements_text,
@@ -58,9 +56,9 @@ def build_traceability_matrix(
 
         traceability.append(
             {
-                "Requirement": req,
-                "Coverage Status": status,
-                "Matched Test Cases": matched
+                "requirement": req,
+                "coverage_status": status,
+                "matched_test_cases": matched
             }
         )
 
